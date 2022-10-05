@@ -1,4 +1,4 @@
-package com.vsu.ru.model;
+package com.vsu.ru;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

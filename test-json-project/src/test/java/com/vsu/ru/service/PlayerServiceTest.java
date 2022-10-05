@@ -1,6 +1,8 @@
 package com.vsu.ru.service;
 
-import com.vsu.ru.model.Player;
+import com.vsu.ru.Player;
+import com.vsu.ru.PlayerService;
+import com.vsu.ru.PlayerServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

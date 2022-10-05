@@ -1,10 +1,9 @@
 package com.vsu.ru.database;
 
-import com.vsu.ru.model.Currency;
-import com.vsu.ru.model.Item;
-import com.vsu.ru.model.Player;
-import com.vsu.ru.model.Progress;
-import com.vsu.ru.service.PlayerServiceImpl;
+import com.vsu.ru.DataBaseServers;
+import com.vsu.ru.PlayersServers;
+import com.vsu.ru.Player;
+import com.vsu.ru.PlayerServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

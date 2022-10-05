@@ -1,5 +1,4 @@
-package com.vsu.ru.model;
-
+package com.vsu.ru;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Item implements DataBaseItem<Long>{
+public class Progress implements DataBaseItem<Long>{
     private Long id;
-    private Integer count;
-    private Integer level;
+    private Long playerId;
     private Long resourceId;
+    private Integer score;
+    private Integer maxScore;
 }

@@ -1,6 +1,4 @@
-package com.vsu.ru.database;
-
-import com.vsu.ru.model.DataBaseItem;
+package com.vsu.ru;
 
 import java.util.List;
 

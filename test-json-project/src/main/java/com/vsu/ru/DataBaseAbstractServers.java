@@ -1,10 +1,7 @@
-package com.vsu.ru.database;
-
-import com.vsu.ru.model.DataBaseItem;
+package com.vsu.ru;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 

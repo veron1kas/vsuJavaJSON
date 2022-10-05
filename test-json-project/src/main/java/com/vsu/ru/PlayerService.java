@@ -1,7 +1,6 @@
-package com.vsu.ru.service;
+package com.vsu.ru;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.vsu.ru.model.Player;
+import com.vsu.ru.Player;
 
 import java.io.IOException;
 import java.util.List;

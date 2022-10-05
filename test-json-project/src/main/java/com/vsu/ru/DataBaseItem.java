@@ -1,4 +1,4 @@
-package com.vsu.ru.model;
+package com.vsu.ru;
 
 public interface DataBaseItem<T> {
     T getId();

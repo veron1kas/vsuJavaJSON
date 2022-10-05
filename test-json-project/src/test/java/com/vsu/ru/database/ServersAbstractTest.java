@@ -1,6 +1,7 @@
 package com.vsu.ru.database;
 
-import com.vsu.ru.model.DataBaseItem;
+import com.vsu.ru.DataBaseServers;
+import com.vsu.ru.DataBaseItem;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 

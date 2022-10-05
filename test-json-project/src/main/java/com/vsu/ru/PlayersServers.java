@@ -1,9 +1,4 @@
-package com.vsu.ru.database;
-
-import com.vsu.ru.model.Currency;
-import com.vsu.ru.model.Item;
-import com.vsu.ru.model.Player;
-import com.vsu.ru.model.Progress;
+package com.vsu.ru;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

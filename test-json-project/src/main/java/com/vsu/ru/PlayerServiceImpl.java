@@ -1,9 +1,7 @@
-package com.vsu.ru.service;
+package com.vsu.ru;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vsu.ru.database.PlayersServers;
-import com.vsu.ru.model.Player;
 
 import java.io.IOException;
 import java.io.InputStream;

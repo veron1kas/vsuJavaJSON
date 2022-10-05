@@ -1,8 +1,8 @@
 package com.vsu.ru.database;
 
-import com.vsu.ru.model.Currency;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.vsu.ru.CurrencyServers;
+import com.vsu.ru.DataBaseServers;
+import com.vsu.ru.Currency;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
