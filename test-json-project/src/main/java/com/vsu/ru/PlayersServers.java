@@ -30,11 +30,11 @@ public class PlayersServers extends DataBaseAbstractServers<Player, Long>{
             "i.id as i_id, i.count as i_count, i.level as i_level, i.resourceid as i_resource_id, " +
             "c.id as c_id, c.resourceid as c_resource_id, c.count as c_count, c.name as c_name " +
             "FROM players pl " + // вычитываем все данные из всех таблиц наджойнив их на игрока
-            "join progresses pr on pl.playerid = pr.playerid " +
-            "join player_item_map pim on pl.playerid = pim.playerid " +
-            "join items i on pim.itemid = i.id " +
-            "join player_currency_map pcm on pl.playerid = pcm.playerid " +
-            "join currencies c on c.id = pcm.currencyid";
+            "right join progresses pr on pl.playerid = pr.playerid " +
+            "right join player_item_map pim on pl.playerid = pim.playerid " +
+            "right join items i on pim.itemid = i.id " +
+            "right join player_currency_map pcm on pl.playerid = pcm.playerid " +
+            "right join currencies c on c.id = pcm.currencyid";
 
     private static final String READ_PLAYER_BY_ID_SQL = "SELECT pl.playerid, pl.nickname, " +
             "pr.id as pr_id, pr.score as pr_score, pr.maxscore as pr_maxscore, pr.resourceid as pr_resource_id, " +
