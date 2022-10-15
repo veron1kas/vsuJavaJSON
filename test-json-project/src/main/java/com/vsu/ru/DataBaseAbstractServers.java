@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class DataBaseAbstractServers<T extends DataBaseItem<K>, K> implements DataBaseServers<T, K>{
     private static final String url = "jdbc:postgresql://localhost:5432/game";
     private static final String user = "postgres";
-    private static final String password = "456852";
+    private static final String password = "poiu0987";
 
 
     @Override
