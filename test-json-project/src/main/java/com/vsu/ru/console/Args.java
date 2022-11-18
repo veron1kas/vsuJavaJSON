@@ -16,5 +16,5 @@ public class Args {
     private Long id;
 
     @Parameter(names = "--help", help = true)
-    private Boolean help = true;
+    private Boolean help = false;
 }

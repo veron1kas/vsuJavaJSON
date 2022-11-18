@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Main {
     private final static PlayerService playerService = new PlayerServiceImpl();
+
     @SneakyThrows
     public static void main(String[] args) {
         Args consoleArgs = new Args();

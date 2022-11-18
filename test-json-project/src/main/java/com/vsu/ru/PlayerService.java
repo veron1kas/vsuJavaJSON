@@ -9,6 +9,8 @@ public interface PlayerService {
     List<Player> readPlayersFromFile(String pathToFile) throws IOException;
     void writeToConsole(List<Player> players);
     void writeToConsole(Player player);
+    void writeToFile(String fileName, Player player);
+    void writeToFile(String fileName, List<Player> players);
     void createPlayers(List<Player> players);
     List<Player> readPlayers();
     void deleteAll();

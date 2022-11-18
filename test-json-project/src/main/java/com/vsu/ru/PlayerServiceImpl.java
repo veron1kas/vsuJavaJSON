@@ -4,8 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.List;
 
 public class PlayerServiceImpl implements PlayerService{
@@ -28,6 +27,30 @@ public class PlayerServiceImpl implements PlayerService{
     @Override
     public void writeToConsole(Player player) {
         System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(player));
+    }
+
+    @SneakyThrows
+    @Override
+    public void writeToFile(String fileName, Player player) {
+        File f = new File(fileName);
+        f.createNewFile();
+        try(OutputStream outputStream =
+                    new FileOutputStream(f)){
+            PrintStream ps = new PrintStream(outputStream);
+            ps.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(player));
+        }
+    }
+
+    @SneakyThrows
+    @Override
+    public void writeToFile(String fileName, List<Player> players) {
+        File f = new File(fileName);
+        f.createNewFile();
+        try(OutputStream outputStream =
+                    new FileOutputStream(f)){
+            PrintStream ps = new PrintStream(outputStream);
+            ps.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(players));
+        }
     }
 
     @Override

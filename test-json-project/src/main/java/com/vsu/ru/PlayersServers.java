@@ -184,7 +184,6 @@ public class PlayersServers extends DataBaseAbstractServers<Player, Long>{
         return preparedStatement.getResultSet().getBoolean(1);
     }
 
-
     private List<Player> convertToPlayers(ResultSet resultSet) throws SQLException {
         Map<Long, Player> playerMap = new HashMap<>();
         Map<Long, Currency> currencyMap = new HashMap<>();
