@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface PlayerService {
     List<Player> readPlayersFromFile(String pathToFile) throws IOException;
+    void writeToConsole(List<Player> players);
+    void writeToConsole(Player player);
     void createPlayers(List<Player> players);
     List<Player> readPlayers();
     void deleteAll();
