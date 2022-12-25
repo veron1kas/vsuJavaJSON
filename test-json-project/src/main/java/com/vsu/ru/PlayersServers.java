@@ -68,7 +68,7 @@ public class PlayersServers extends DataBaseAbstractServers<Player, Long>{
         //если здесь, значит игрок существует, нужно проверить, что в нем ничего не изменилось,
         // а если изменилось то изменить каскадно
         //достанем старого игрока
-        Player oldPlayer = readAndConvert(connection, newPlayer.getId());
+        Player oldPlayer = readAndConvert(connection, newPlayer.getPlayerId());
         Map<Long, Currency> oldPlayerCurrencies = oldPlayer.getCurrencies();
         Map<Long, Item> oldPlayerItems = oldPlayer.getItems();
         Map<Long, Progress> oldPlayerProgresses = oldPlayer.getProgresses().stream().collect(Collectors.toMap(Progress::getId, Function.identity()));
@@ -99,7 +99,7 @@ public class PlayersServers extends DataBaseAbstractServers<Player, Long>{
             deleteFromPlayerCurrencyMap(connection, newPlayer.getPlayerId(), s.getKey());
         }
         for(var s : newPlayer.getProgresses()){
-            if(oldPlayerCurrencies.containsKey(s.getId())){
+            if(oldPlayerProgresses.containsKey(s.getId())){
                 progressServers.update(connection, s);
                 oldPlayerProgresses.remove(s.getId());
             }else{

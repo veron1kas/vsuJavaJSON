@@ -19,6 +19,8 @@ public class PlayerServiceTest{
     @Test
     public void readTest() throws IOException {
         List<Player> players = playerService.readPlayersFromFile("players.json");
+        Player player = players.get(0);
+        System.out.println(player.getPlayerId());
         assertEquals(10000, players.size());
     }
 
@@ -33,6 +35,16 @@ public class PlayerServiceTest{
         playerService.deleteAll();
         List<Player> playersAfterDeleteInDb = playerService.readPlayers();
         assertEquals(0, playersAfterDeleteInDb.size());
+    }
+
+    @Test //это будет долго по скольку в файле 10000 игроков, и нужно их все сохранить в базе, потом достать оттуда, а потом еще и удалить.
+    // НО зато этот тест "грубо говоря окончательны", он скажет , что все работает так, как надо
+    //А, вообще, я думаю это можно оптимизировать
+    public void readAndSaveTestFirstTen() throws IOException {
+        List<Player> players = playerService.readPlayersFromFile("first_ten.json");
+        playerService.createPlayers(players);
+        List<Player> playersFromDb = playerService.readPlayers();
+        assertEquals(playersFromDb.size(), players.size());
     }
 
 

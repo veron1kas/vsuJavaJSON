@@ -1,20 +1,28 @@
 package com.vsu.ru;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
 
 public class PlayerServiceImpl implements PlayerService{
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final PlayersServers playersServers = new PlayersServers();
+    {
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        objectMapper.setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE);
+        objectMapper.setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE);
+    }
 
     @Override
     public List<Player> readPlayersFromFile(String fileName) throws IOException {
         InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(fileName);
-        return objectMapper.readValue(resourceAsStream, new TypeReference<>() {});
+        return objectMapper.readValue(resourceAsStream, new TypeReference<List<Player>>() {});
     }
 
     @SneakyThrows
@@ -27,6 +35,18 @@ public class PlayerServiceImpl implements PlayerService{
     @Override
     public void writeToConsole(Player player) {
         System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(player));
+    }
+
+    @SneakyThrows
+    @Override
+    public String getAsString(List<Player> players) {
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(players);
+    }
+
+    @SneakyThrows
+    @Override
+    public String getAsString(Player players) {
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(players);
     }
 
     @SneakyThrows
@@ -59,8 +79,25 @@ public class PlayerServiceImpl implements PlayerService{
     }
 
     @Override
+    public void createPlayer(Player player) {
+        playersServers.saveOrUpdate(player);
+    }
+
+    @Override
     public List<Player> readPlayers() {
         return playersServers.readAll();
+    }
+
+    @SneakyThrows
+    @Override
+    public List<Player> convertAllFromString(String stringPlayers) {
+        return Arrays.stream(objectMapper.readValue(stringPlayers, Player[].class)).toList();
+    }
+
+    @SneakyThrows
+    @Override
+    public Player convertOneFromString(String stringPlayers) {
+        return objectMapper.readValue(stringPlayers, Player.class);
     }
 
     @Override
