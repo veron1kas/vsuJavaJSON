@@ -71,11 +71,13 @@ public class PlayerServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String requestURI = req.getRequestURI();
         String[] split = requestURI.split("/");
-        if(split.length != 3){
-            resp.sendError(400);
-        }else{
+        if(split.length == 2){
+            playerService.deleteAll();
+        }else if(split.length == 3){
             Long id = Long.valueOf(split[2]);
             playerService.deleteById(id);
+        }else{
+            resp.sendError(400);
         }
     }
 
