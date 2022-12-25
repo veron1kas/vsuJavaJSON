@@ -32,7 +32,7 @@ public class PlayerServersTest extends ServersAbstractTest<Player, Long>{
         //сохраним его
         playersServers.saveOrUpdate(player);
         //проверим теперь что все каскадно сохранилось, для этого прочитаем его
-        Player read = playersServers.read(player.getId());
+        Player read = playersServers.read(player.getPlayerId());
         assertNotNull(read);
         assertEquals(read.getNickname(), player.getNickname());
         assertEquals(read.getCurrencies().size(), player.getCurrencies().size());
